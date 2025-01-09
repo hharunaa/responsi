@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Amikom Yogyakarta</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header>
+        <img src="{{ url_for('static', filename='amikom.jpeg') }}" alt="Logo" class="logo">
+        <h1>Data Mahasiswa Amikom Yogyakarta</h1>
+    </header>
+    <form action="{{ url_for('edit', old_nim=mahasiswa.nim) }}" method="POST">
+        <label for="nim">NIM:</label>
+        <input type="text" name="nim" value="{{ mahasiswa.nim }}" required>
+        <label for="nama">Nama Lengkap:</label>
+        <input type="text" name="nama" value="{{ mahasiswa.nama }}" required>
+        <label for="asal">Asal:</label>
+        <input type="text" name="asal" value="{{ mahasiswa.asal }}" required>
+        <button type="submit">Update</button>
+    </form>
+    <a href="{{ url_for('index') }}" class="button" style="display: inline-block; margin-top: 20px;">Kembali</a>
+</body>
+</html>
